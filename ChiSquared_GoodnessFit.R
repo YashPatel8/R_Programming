@@ -1,4 +1,4 @@
-#problem 1
+
 R11 <- runif(1000)
 print(R11)
 X11 <- -log(R11)
@@ -10,7 +10,7 @@ plot(fit1)
 dexp <- dexp(X11)
 chisq.test(X11, dexp)
 
-#problem 2
+
 R21 <- runif(10000)
 print(R21)
 R22 <- runif(10000)
@@ -25,7 +25,7 @@ plot(fit2)
 dg <- dgamma(X21, shape = 1)
 chisq.test(X21, dg)
 
-#problem 3
+
 R31 <- runif(1000)
 print(R31)
 R32 <- runif(1000)
@@ -64,3 +64,4 @@ fit3 <- fitdist(newY31, "norm")
 plot(fit3)
 normY31 <- dnorm(newY31)
 chisq.test(newY31, normY31)
+

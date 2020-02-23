@@ -1,19 +1,19 @@
-#problem 1
+
 install.packages("readxl")
 library(readxl)
 install.packages("forecast")
 library(forecast)
-excel_sheets("~/Desktop/Honeywell.xlsx")
-hon1 <- read_excel("~/Desktop/Honeywell.xlsx",sheet = 1, col_names = TRUE)
+excel_sheets(file.choose())
+hon1 <- read_excel("Honeywell.xlsx",sheet = 1, col_names = TRUE)
 print(hon1)
-hon2 <- read_excel("~/Desktop/Honeywell.xlsx",sheet = 2, col_names = TRUE)
+hon2 <- read_excel("Honeywell.xlsx",sheet = 2, col_names = TRUE)
 print(hon2)
-hon3 <- read_excel("~/Desktop/Honeywell.xlsx", sheet = 3, col_names = TRUE)
+hon3 <- read_excel("Honeywell.xlsx", sheet = 3, col_names = TRUE)
 print(hon3)
 hon1$Close
 plot.ts(hon1$Close)
 
-#part A
+
 hon1exp1 <- HoltWinters(hon1$Close, alpha = 0.15, beta = FALSE, gamma = FALSE)
 print(hon1exp1)
 hon1exp1.pred <- predict(hon1exp1,n.ahead = 1,prediction.interval = TRUE)
@@ -58,7 +58,7 @@ print(acc4)
 mse4 <- acc4[2]^2
 print(mse4)
 
-#part B
+
 hon1exp5 <- HoltWinters(hon1$Close, alpha = 0.75, beta = 0.15, gamma = FALSE)
 print(hon1exp5)
 hon1exp5.pred <- predict(hon1exp5,n.ahead = 1,prediction.interval = TRUE)
